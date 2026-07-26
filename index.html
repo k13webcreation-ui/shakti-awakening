@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shakti Awakening Life Coaching Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#3a1078;--primary-light:#6c3fa0;--primary-dark:#200a50;
+  --gold:#d4a843;--gold-light:#f0d78c;--gold-dark:#b08a2e;
+  --bg:#faf8f5;--bg-alt:#f0ebe3;--bg-card:#ffffff;
+  --text:#1a1a2e;--text-light:#4a4a6a;--text-muted:#7a7a9a;
+  --border:rgba(58,16,120,0.1);--shadow:0 4px 30px rgba(58,16,120,0.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:all 0.4s ease}
+nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);box-shadow:0 2px 40px rgba(58,16,120,0.08)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;text-decoration:none;transition:color 0.3s}
+nav.scrolled .nav-logo{color:var(--primary)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.3s;letter-spacing:0.3px}
+nav.scrolled .nav-links a{color:var(--text-light)}
+.nav-links a:hover{color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hamburger span{width:24px;height:2px;background:#fff;transition:all 0.3s}
+nav.scrolled .hamburger span{background:var(--primary)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--primary-dark);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:30px}
+.mobile-menu.active{display:flex}
+.mobile-menu a{color:#fff;text-decoration:none;font-size:1.3rem;font-family:'Playfair Display',serif;font-weight:600}
+.mobile-close{position:absolute;top:30px;right:40px;color:#fff;font-size:2rem;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 40%,var(--primary-light) 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;padding:40px;max-width:800px}
+.hero-badge{display:inline-block;padding:8px 24px;border:1px solid rgba(255,255,255,0.3);border-radius:50px;color:rgba(255,255,255,0.8);font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:30px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,4.5rem);color:#fff;font-weight:700;line-height:1.15;margin-bottom:20px}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto 40px;font-weight:300;line-height:1.7}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{padding:14px 36px;border-radius:50px;font-size:0.95rem;font-weight:600;text-decoration:none;transition:all 0.3s;cursor:pointer;border:none;letter-spacing:0.3px}
+.btn-gold{background:var(--gold);color:var(--primary-dark)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,168,67,0.3)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4)}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;animation:float 2s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-indicator svg{width:20px;height:20px;stroke:rgba(255,255,255,0.5)}
+
+/* SECTIONS */
+section{padding:100px 40px}
+.section-header{text-align:center;max-width:700px;margin:0 auto 70px}
+.section-label{display:inline-block;padding:6px 20px;border-radius:50px;background:rgba(58,16,120,0.06);color:var(--primary);font-size:0.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);color:var(--text);margin-bottom:16px;line-height:1.2}
+.section-desc{font-size:1rem;color:var(--text-muted);line-height:1.7}
+.gold-line{width:60px;height:3px;background:var(--gold);margin:20px auto 0;border-radius:2px}
+
+/* ABOUT */
+.about{background:var(--bg)}
+.about-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{position:relative}
+.about-img-wrapper{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(135deg,var(--primary-light),var(--primary-dark))}
+.about-img-wrapper::before{content:'S';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:12rem;color:rgba(255,255,255,0.08);font-weight:700}
+.about-img-accent{position:absolute;top:-20px;right:-20px;width:120px;height:120px;border-radius:20px;background:var(--gold);opacity:0.3;z-index:-1}
+.about-content h3{font-family:'Playfair Display',serif;font-size:2rem;color:var(--text);margin-bottom:8px}
+.about-content .role{color:var(--gold-dark);font-weight:500;font-size:0.95rem;margin-bottom:20px}
+.about-content p{color:var(--text-light);line-height:1.8;margin-bottom:16px}
+.about-content blockquote{border-left:3px solid var(--gold);padding-left:20px;margin:24px 0;font-style:italic;color:var(--text);font-family:'Playfair Display',serif;font-size:1.05rem;line-height:1.7}
+
+/* COMPANY ABOUT */
+.company-about{background:var(--bg-alt)}
+.company-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.company-card{background:var(--bg-card);border-radius:20px;padding:40px;box-shadow:var(--shadow);transition:transform 0.3s}
+.company-card:hover{transform:translateY(-4px)}
+.company-card h4{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);margin-bottom:12px}
+.company-card p{color:var(--text-light);line-height:1.8;font-size:0.95rem}
+.company-card .icon{width:50px;height:50px;border-radius:14px;background:rgba(58,16,120,0.06);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.company-card .icon svg{width:24px;height:24px;stroke:var(--primary);fill:none;stroke-width:2}
+
+/* SERVICES */
+.services{background:var(--bg)}
+.services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.service-card{background:var(--bg-card);border-radius:20px;padding:40px 30px;box-shadow:var(--shadow);transition:all 0.4s;border:1px solid transparent;position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.service-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--primary),var(--gold));opacity:0;transition:opacity 0.3s}
+.service-card:hover::after{opacity:1}
+.service-number{font-family:'Playfair Display',serif;font-size:3.5rem;color:rgba(58,16,120,0.06);font-weight:700;margin-bottom:-10px}
+.service-card h4{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin-bottom:12px}
+.service-card p{color:var(--text-light);font-size:0.9rem;line-height:1.7;margin-bottom:16px}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px}
+.service-tag{padding:4px 12px;border-radius:20px;background:rgba(58,16,120,0.04);color:var(--primary);font-size:0.75rem;font-weight:500}
+
+/* PACKAGES */
+.packages{background:var(--bg-alt)}
+.packages-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.package-card{background:var(--bg-card);border-radius:20px;padding:40px 30px;text-align:center;box-shadow:var(--shadow);transition:all 0.4s;position:relative;overflow:hidden}
+.package-card.featured{border:2px solid var(--gold);transform:scale(1.03)}
+.package-card.featured::before{content:'MOST POPULAR';position:absolute;top:20px;right:-35px;background:var(--gold);color:var(--primary-dark);font-size:0.65rem;font-weight:700;padding:4px 40px;transform:rotate(45deg);letter-spacing:1px}
+.package-card h4{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--primary);margin-bottom:8px}
+.package-price{font-size:1.1rem;color:var(--gold-dark);font-weight:600;margin-bottom:20px}
+.package-sessions{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(58,16,120,0.04);color:var(--primary);font-size:0.8rem;font-weight:600;margin-bottom:20px}
+.package-features{list-style:none;text-align:left;margin-bottom:28px}
+.package-features li{padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-light);font-size:0.9rem;display:flex;align-items:center;gap:8px}
+.package-features li::before{content:'✓';color:var(--gold);font-weight:700;font-size:0.85rem}
+.btn-package{width:100%;padding:12px;border-radius:12px;border:2px solid var(--primary);background:transparent;color:var(--primary);font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s}
+.btn-package:hover{background:var(--primary);color:#fff}
+.package-card.featured .btn-package{background:var(--primary);color:#fff;border-color:var(--primary)}
+.package-card.featured .btn-package:hover{background:var(--primary-dark)}
+
+/* AUDIENCE */
+.audience{background:var(--bg)}
+.audience-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.audience-card{background:var(--bg-card);border-radius:20px;padding:36px;box-shadow:var(--shadow)}
+.audience-card h4{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--primary);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.audience-card ul{list-style:none}
+.audience-card li{padding:8px 0;color:var(--text-light);font-size:0.9rem;padding-left:16px;position:relative}
+.audience-card li::before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* PROCESS */
+.process{background:var(--bg-alt)}
+.process-steps{max-width:900px;margin:0 auto;position:relative}
+.process-steps::before{content:'';position:absolute;top:0;left:30px;width:2px;height:100%;background:linear-gradient(to bottom,var(--primary),var(--gold))}
+.process-step{display:flex;gap:30px;margin-bottom:50px;position:relative}
+.process-step:last-child{margin-bottom:0}
+.step-marker{width:60px;height:60px;min-width:60px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;font-weight:700;z-index:1;box-shadow:0 4px 20px rgba(58,16,120,0.2)}
+.step-content{background:var(--bg-card);border-radius:16px;padding:28px;box-shadow:var(--shadow);flex:1}
+.step-content h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);margin-bottom:8px}
+.step-content p{color:var(--text-light);font-size:0.9rem;line-height:1.7}
+
+/* VISION MISSION */
+.vision-mission{background:var(--bg)}
+.vm-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.vm-card{background:var(--bg-card);border-radius:20px;padding:44px;box-shadow:var(--shadow);text-align:center;border-top:4px solid var(--gold)}
+.vm-card h4{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);margin-bottom:16px}
+.vm-card p{color:var(--text-light);line-height:1.8;font-size:0.95rem}
+
+/* VALUES */
+.values{background:var(--bg-alt)}
+.values-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.value-card{background:var(--bg-card);border-radius:16px;padding:32px 24px;text-align:center;box-shadow:var(--shadow);transition:all 0.3s}
+.value-card:hover{transform:translateY(-4px)}
+.value-card .num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700;margin-bottom:8px}
+.value-card h5{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);margin-bottom:10px}
+.value-card p{color:var(--text-muted);font-size:0.85rem;line-height:1.7}
+
+/* MARKET */
+.market{background:var(--bg)}
+.market-stats{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.stat-card{background:var(--bg-card);border-radius:20px;padding:40px;text-align:center;box-shadow:var(--shadow)}
+.stat-num{font-family:'Playfair Display',serif;font-size:3rem;color:var(--primary);font-weight:700}
+.stat-label{color:var(--text-light);font-size:0.9rem;margin-top:8px;line-height:1.6}
+
+/* CONTACT */
+.contact{background:linear-gradient(135deg,var(--primary-dark),var(--primary),var(--primary-light));color:#fff}
+.contact .section-label{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8)}
+.contact .section-title{color:#fff}
+.contact .section-desc{color:rgba(255,255,255,0.7)}
+.contact-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact-info{display:flex;flex-direction:column;gap:30px}
+.contact-item{display:flex;gap:16px;align-items:flex-start}
+.contact-icon{width:50px;height:50px;min-width:50px;border-radius:14px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center}
+.contact-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:2}
+.contact-item h5{font-weight:600;margin-bottom:4px;color:#fff}
+.contact-item p{color:rgba(255,255,255,0.7);font-size:0.9rem}
+.contact-item a{color:var(--gold);text-decoration:none}
+.contact-form{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);border-radius:20px;padding:36px;border:1px solid rgba(255,255,255,0.1)}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:0.85rem;margin-bottom:6px;color:rgba(255,255,255,0.7);font-weight:500}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:#fff;font-size:0.9rem;font-family:'Inter',sans-serif;transition:border-color 0.3s}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.35)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group select option{background:var(--primary-dark);color:#fff}
+.form-submit{width:100%;padding:14px;border-radius:12px;border:none;background:var(--gold);color:var(--primary-dark);font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.3s;letter-spacing:0.3px}
+.form-submit:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,168,67,0.3)}
+
+/* FOOTER */
+footer{background:var(--primary-dark);color:rgba(255,255,255,0.5);text-align:center;padding:40px 20px;font-size:0.85rem}
+footer a{color:var(--gold);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  section{padding:70px 24px}
+  .about-grid,.company-grid,.audience-grid,.vm-grid,.contact-grid{grid-template-columns:1fr}
+  .packages-grid{grid-template-columns:1fr}
+  .package-card.featured{transform:none}
+  .market-stats{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about-img{display:none}
+}
+@media(max-width:600px){
+  .hero h1{font-size:2.2rem}
+  .hero-sub{font-size:1rem}
+  .section-title{font-size:1.8rem}
+}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:all 0.7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Shakti Awakening</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-close" onclick="toggleMenu()">&times;</div>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#packages" onclick="toggleMenu()">Packages</a>
+  <a href="#process" onclick="toggleMenu()">Process</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">Life Coaching &middot; Cape Town</div>
+    <h1>Awaken Your <span>Inner Power</span> &amp; Transform Your Life</h1>
+    <p class="hero-sub">Compassionate, personalized life coaching that helps you reconnect with your authentic self, overcome challenges, and create an aligned, fulfilling life.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-gold">Start Your Journey</a>
+      <a href="#services" class="btn btn-outline">Explore Services</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <svg viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- ABOUT SIRISHA -->
+<section class="about" id="about">
+  <div class="section-header">
+    <div class="section-label">Meet Your Coach</div>
+    <h2 class="section-title">Hello, I'm Sirisha</h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-img fade-up">
+      <div class="about-img-wrapper"></div>
+      <div class="about-img-accent"></div>
+    </div>
+    <div class="about-content fade-up">
+      <h3>Sirisha Deolal</h3>
+      <p class="role">Founder &amp; Life Coach &middot; Shakti Awakening</p>
+      <p>I am a deeply compassionate and purpose-driven leader whose work is rooted in my own powerful journey of transformation. Growing up, I often struggled to understand my emotions or find where I truly belonged. Feeling different and out of place, I experienced firsthand the weight of self-doubt and the challenge of navigating a world that didn't always feel accepting.</p>
+      <p>Rather than allowing those experiences to define me, I used them as a catalyst for growth. Through exposure to diverse life experiences, the structure of corporate environments, and my studies in psychology, I began to understand myself on a deeper level. Step by step, I overcame social barriers, rebuilt my confidence, and found the strength to pursue my goals with purpose and clarity.</p>
+      <blockquote>"My mission is not only to guide individuals toward success, but to remind them that they are worthy, capable, and never alone in their journey."</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company-about">
+  <div class="section-header">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">Shakti Awakening Life Coaching Services</h2>
+    <p class="section-desc">A modern transformational life coaching brand focused on building confidence, emotional clarity, mindset transformation and personal growth.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="company-grid">
+    <div class="company-card fade-up">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+      </div>
+      <h4>Our Approach</h4>
+      <p>We provide structured online coaching services designed to help individuals reconnect with themselves, overcome limiting beliefs, and create aligned lives. Our coaching process involves interactive, guided activities within sessions that encourage self-reflection, build practical skills, and promote accountability.</p>
+    </div>
+    <div class="company-card fade-up">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h4>Our Commitment</h4>
+      <p>Clients are supported in actively applying what they learn, ensuring they take ownership of their growth and consistently put in the work required to become their best selves. We are committed to helping individuals not only achieve their goals, but also embrace their identity, trust their journey, and step into the most empowered version of themselves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Coaching Services</h2>
+    <p class="section-desc">Four specialized coaching pathways designed to meet you exactly where you are in your journey.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-number">01</div>
+      <h4>Confidence Coaching</h4>
+      <p>Build unshakeable self-confidence and rewrite the narrative of self-doubt. Learn to reframe negative self-talk, manage anxiety, and develop a clear action plan for personal empowerment.</p>
+      <div class="service-tags">
+        <span class="service-tag">Self-Talk</span>
+        <span class="service-tag">Anxiety</span>
+        <span class="service-tag">Action Plans</span>
+        <span class="service-tag">Resilience</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-number">02</div>
+      <h4>Life Purpose Coaching</h4>
+      <p>Uncover your core values, review life's visions, and identify the limiting beliefs holding you back. Create a meaningful action plan that leads to purposeful, aligned living.</p>
+      <div class="service-tags">
+        <span class="service-tag">Purpose</span>
+        <span class="service-tag">Values</span>
+        <span class="service-tag">Life Mapping</span>
+        <span class="service-tag">Limiting Beliefs</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-number">03</div>
+      <h4>Mindset &amp; Transformation</h4>
+      <p>Clear mental blocks, explore new perspectives, and undergo genuine identity shifting. Develop emotional intelligence and a growth mindset that fuels lasting transformation.</p>
+      <div class="service-tags">
+        <span class="service-tag">Mindset Shift</span>
+        <span class="service-tag">Emotional Intelligence</span>
+        <span class="service-tag">Identity</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-number">04</div>
+      <h4>Habit Coaching</h4>
+      <p>Identify the patterns that no longer serve you. Track daily habits, anchor new ones, and build a sustainable system for lasting behavioural change.</p>
+      <div class="service-tags">
+        <span class="service-tag">Daily Habits</span>
+        <span class="service-tag">Pattern Tracking</span>
+        <span class="service-tag">Recovery Plans</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="section-header">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Coaching Packages</h2>
+    <p class="section-desc">Flexible packages designed to match your pace, goals, and budget.</p>
+    <div class="gold-line"></div>
+  </div>
+
+  <!-- Basic -->
+  <div class="packages-grid" style="margin-bottom:30px">
+    <div class="package-card fade-up">
+      <h4>Basic Package</h4>
+      <div class="package-price">R400 – R1,600</div>
+      <div class="package-sessions">1–2 sessions / month</div>
+      <ul class="package-features">
+        <li>Personalized coaching sessions</li>
+        <li>Goal setting &amp; action steps</li>
+        <li>Foundational mindset shift</li>
+        <li>No activities or additional materials</li>
+      </ul>
+      <a href="#contact" class="btn-package">Get Started</a>
+    </div>
+
+    <!-- Standard -->
+    <div class="package-card featured fade-up">
+      <h4>Standard Package</h4>
+      <div class="package-price">R1,200 – R4,000</div>
+      <div class="package-sessions">3–4 sessions / month</div>
+      <ul class="package-features">
+        <li>Ongoing support &amp; accountability</li>
+        <li>Tools &amp; resource materials</li>
+        <li>Weekly check-ins</li>
+        <li>Guided activities included</li>
+        <li>Progress monitoring</li>
+      </ul>
+      <a href="#contact" class="btn-package">Get Started</a>
+    </div>
+
+    <!-- Premium -->
+    <div class="package-card fade-up">
+      <h4>Premium Package</h4>
+      <div class="package-price">R1,600 – R6,000</div>
+      <div class="package-sessions">4–8 sessions / month</div>
+      <ul class="package-features">
+        <li>Priority support &amp; deeper guidance</li>
+        <li>Comprehensive source materials</li>
+        <li>Regular check-ins &amp; activities</li>
+        <li>Long-term life mapping</li>
+        <li>Behavioural profiling</li>
+      </ul>
+      <a href="#contact" class="btn-package">Get Started</a>
+    </div>
+  </div>
+
+  <!-- Per-service breakdown -->
+  <div style="max-width:1100px;margin:60px auto 0">
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;text-align:center;margin-bottom:36px;color:var(--text)">Sessions by Service</h3>
+    <div class="services-grid">
+      <div class="service-card fade-up" style="text-align:center">
+        <h4>Confidence</h4>
+        <p><strong>Basic:</strong> 2–3 sessions<br><strong>Standard:</strong> 3–5 sessions<br><strong>Premium:</strong> 5–6 sessions</p>
+      </div>
+      <div class="service-card fade-up" style="text-align:center">
+        <h4>Life Purpose</h4>
+        <p><strong>Basic:</strong> 1–4 sessions<br><strong>Standard:</strong> 4–8 sessions<br><strong>Premium:</strong> 8–10 sessions</p>
+      </div>
+      <div class="service-card fade-up" style="text-align:center">
+        <h4>Mindset</h4>
+        <p><strong>Basic:</strong> 4 sessions<br><strong>Standard:</strong> 8–10 sessions<br><strong>Premium:</strong> 10–12 sessions</p>
+      </div>
+      <div class="service-card fade-up" style="text-align:center">
+        <h4>Habits</h4>
+        <p><strong>Basic:</strong> 2–3 sessions<br><strong>Standard:</strong> 3–5 sessions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="audience">
+  <div class="section-header">
+    <div class="section-label">Who It's For</div>
+    <h2 class="section-title">Is This For You?</h2>
+    <p class="section-desc">If any of this sounds familiar, you're in the right place.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="audience-grid">
+    <div class="audience-card fade-up">
+      <h4>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        You might relate if...
+      </h4>
+      <ul>
+        <li>You feel disconnected from yourself or uncertain about your direction</li>
+        <li>You want to improve confidence, mindset, and personal habits</li>
+        <li>You're seeking balance between emotional well-being and daily responsibilities</li>
+        <li>You prefer a supportive and non-judgmental environment</li>
+        <li>You value personal transformation that is both meaningful and sustainable</li>
+      </ul>
+    </div>
+    <div class="audience-card fade-up">
+      <h4>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Common challenges we address
+      </h4>
+      <ul>
+        <li>Career pressure and burnout</li>
+        <li>Life transitions and uncertainty</li>
+        <li>Low self-confidence and self-doubt</li>
+        <li>Emotional overwhelm</li>
+        <li>A lack of purpose or direction</li>
+        <li>Difficulty building consistent habits</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Your Coaching Journey</h2>
+    <p class="section-desc">A clear, structured process from first contact to transformation.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <div class="step-marker">1</div>
+      <div class="step-content">
+        <h4>Get In Touch</h4>
+        <p>Contact us through social media or email. We'll reach out to learn a little more about you and what you're looking for.</p>
+      </div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-marker">2</div>
+      <div class="step-content">
+        <h4>Pre-Questionnaire</h4>
+        <p>A short questionnaire form is sent to you to complete — helping us understand your needs, goals, and where you are in your journey.</p>
+      </div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-marker">3</div>
+      <div class="step-content">
+        <h4>Introductory Intake Session</h4>
+        <p>We schedule a free introductory session to dive deeper into your goals, challenges, and areas of focus — ensuring the right fit.</p>
+      </div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-marker">4</div>
+      <div class="step-content">
+        <h4>Choose Your Package</h4>
+        <p>Based on the intake session, we recommend the most suitable coaching package and session plan for your unique needs.</p>
+      </div>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-marker">5</div>
+      <div class="step-content">
+        <h4>Begin Your Transformation</h4>
+        <p>Sign the coaching agreement, schedule your sessions, and begin the work. Throughout the journey, we keep detailed notes to monitor your progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section class="vision-mission">
+  <div class="section-header">
+    <div class="section-label">Our Purpose</div>
+    <h2 class="section-title">Vision &amp; Mission</h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="vm-grid">
+    <div class="vm-card fade-up">
+      <h4>Our Vision</h4>
+      <p>To be a trusted life coaching service in Cape Town, offering efficient, accessible, and reliable guidance that supports individuals on their journey toward self-discovery, balance, and purposeful living.</p>
+    </div>
+    <div class="vm-card fade-up">
+      <h4>Our Mission</h4>
+      <p>To deliver compassionate, personalized life coaching through an accessible online platform, supporting individuals across Cape Town. We provide reliable, heart-centered guidance that nurtures self-awareness, inner balance, and purposeful growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="section-header">
+    <div class="section-label">Our Values</div>
+    <h2 class="section-title">What We Stand For</h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="values-grid">
+    <div class="value-card fade-up">
+      <div class="num">01</div>
+      <h5>Aligned Living</h5>
+      <p>True transformation happens when actions, values, and purpose are in harmony.</p>
+    </div>
+    <div class="value-card fade-up">
+      <div class="num">02</div>
+      <h5>Accessible Growth</h5>
+      <p>Growth should not be limited by location. Our online approach keeps support within reach.</p>
+    </div>
+    <div class="value-card fade-up">
+      <div class="num">03</div>
+      <h5>Courageous Exploration</h5>
+      <p>Facing yourself honestly — embracing both strengths and challenges as pathways to growth.</p>
+    </div>
+    <div class="value-card fade-up">
+      <div class="num">04</div>
+      <h5>Consistent Support</h5>
+      <p>Transformation is a journey, not a moment. We are here every step of the way.</p>
+    </div>
+    <div class="value-card fade-up">
+      <div class="num">05</div>
+      <h5>Intentional Impact</h5>
+      <p>Every session is designed with purpose — to create lasting, meaningful change.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="market">
+  <div class="section-header">
+    <div class="section-label">The Opportunity</div>
+    <h2 class="section-title">Life Coaching in South Africa</h2>
+    <p class="section-desc">The demand for personal growth and emotional clarity has never been greater.</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="market-stats">
+    <div class="stat-card fade-up">
+      <div class="stat-num">25%</div>
+      <p class="stat-label">Growth in demand for life coaching in South Africa in recent years</p>
+    </div>
+    <div class="stat-card fade-up">
+      <div class="stat-num">75%</div>
+      <p class="stat-label">Of South Africans believe coaching is important for personal growth</p>
+    </div>
+    <div class="stat-card fade-up">
+      <div class="stat-num">100+</div>
+      <p class="stat-label">Active life coaches listed in Cape Town directories alone</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-header">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Start Your Transformation</h2>
+    <p class="section-desc">Ready to take the first step? We'd love to hear from you.</p>
+    <div class="gold-line" style="background:var(--gold)"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info fade-up">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <h5>Email</h5>
+          <p><a href="mailto:shaktiawkeningLCS@gmail.com">shaktiawkeningLCS@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <h5>Phone</h5>
+          <p><a href="tel:+27815333195">+27 81 533 3195</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div>
+          <h5>Instagram</h5>
+          <p>@shakti_awkening_lcs</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form fade-up">
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Service Interest</label>
+          <select id="service">
+            <option value="">Select a service...</option>
+            <option value="confidence">Confidence Coaching</option>
+            <option value="purpose">Life Purpose Coaching</option>
+            <option value="mindset">Mindset &amp; Transformation</option>
+            <option value="habits">Habit Coaching</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" placeholder="Tell us a bit about yourself and what you're looking for..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Shakti Awakening Life Coaching Services. All rights reserved. Built with purpose by <a href="#">K15 Creation</a></p>
+</footer>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)
+})
+
+// MOBILE MENU
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('active')
+}
+
+// SCROLL ANIMATIONS
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.1})
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el))
+
+// FORM
+function handleSubmit(e){
+  e.preventDefault()
+  const name=document.getElementById('name').value
+  const email=document.getElementById('email').value
+  const service=document.getElementById('service').value
+  const message=document.getElementById('message').value
+  const whatsappText=encodeURIComponent(`Hello Sirisha! My name is ${name}.\n\nI'm interested in ${service ? document.getElementById('service').selectedOptions[0].text : 'your coaching services'}.\n\n${message}`)
+  window.open(`https://wa.me/27815333195?text=${whatsappText}`,'_blank')
+  e.target.reset()
+}
+</script>
+
+</body>
+</html>
